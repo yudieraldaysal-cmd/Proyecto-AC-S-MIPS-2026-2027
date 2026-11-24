@@ -20,6 +20,8 @@ import javax.swing.*;
  * Por cada imagen imprime una linea: RESULTADO<TAB>imagen<TAB>detenido<TAB>ciclos<TAB>mem_addr<TAB>tty(hex).
  * Con traza > 0 imprime MEM_ADDR, MEM_RDATA y las senales de escritura de los primeros `traza` ciclos.
  * Solo usa las senales de la placa, asi que funciona con cualquier organizacion interna de la CPU.
+ * Si la CPU no tiene VHDL no crea ninguna ventana, de modo que puede ejecutarse sin pantalla
+ * (util para run_tests.py y para integrar la comprobacion en un script).
  */
 class Run {
   static Project project; static Frame frame; static CircuitState board, memoria;
@@ -84,8 +86,8 @@ class Run {
     memoria = sub(board, "Memory"); reset = find(board, "Button", "Reset");
     // Logisim solo arranca los VHDL de subcircuitos cuyo estado ya existe.
     vhdl = crearSubestados(board) > 0;
-    SwingUtilities.invokeAndWait(() -> { frame = new Frame(project); project.setFrame(frame); frame.setVisible(false); });
-    if (vhdl) {  // sin entidades VHDL no hace falta Questa
+    if (vhdl) {  // la ventana solo hace falta para la consola de Questa
+      SwingUtilities.invokeAndWait(() -> { frame = new Frame(project); project.setFrame(frame); frame.setVisible(false); });
       project.getVhdlSimulator().enable();
       long deadline = System.nanoTime() + 60_000_000_000L;
       while (!project.getVhdlSimulator().isRunning() && System.nanoTime() < deadline) Thread.sleep(50);
@@ -129,7 +131,7 @@ class Run {
       System.exit(0);
     } catch (Throwable e) {
       e.printStackTrace();
-      try { System.err.println(consola()); } catch (Throwable ignored) {}
+      try { if (frame != null) System.err.println(consola()); } catch (Throwable ignored) {}
       System.exit(2);
     }
   }

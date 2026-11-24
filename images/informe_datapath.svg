@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="850" viewBox="0 0 1000 850" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333344"/></marker></defs>
+<rect width="1000" height="850" fill="#fff"/>
+<rect x="30" y="80" width="135" height="68" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="97.5" y="107" text-anchor="middle" font-size="23" font-weight="bold" fill="#1a1a2a">PC</text>
+<text x="97.5" y="129" text-anchor="middle" font-size="17" fill="#222233">PCWrite</text>
+<rect x="185" y="72" width="175" height="82" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="272.5" y="99" text-anchor="middle" font-size="21" font-weight="bold" fill="#1a1a2a">Mux PC</text>
+<text x="272.5" y="121" text-anchor="middle" font-size="17" fill="#222233">ALU / ALUOut (jal)</text>
+<rect x="30" y="225" width="135" height="68" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="97.5" y="252" text-anchor="middle" font-size="23" font-weight="bold" fill="#1a1a2a">IR</text>
+<text x="97.5" y="274" text-anchor="middle" font-size="17" fill="#222233">IRWrite</text>
+<rect x="380" y="70" width="255" height="105" rx="8" fill="#eef6ee" stroke="#4a4a66" stroke-width="2"/>
+<text x="507.5" y="97" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a2a">Instruction_Decoder</text>
+<text x="507.5" y="119" text-anchor="middle" font-size="16" fill="#222233">Clase, ALUOp, ExtType,</text>
+<text x="507.5" y="139" text-anchor="middle" font-size="16" fill="#222233">RegDst, MemToReg, LoadType,</text>
+<text x="507.5" y="159" text-anchor="middle" font-size="16" fill="#222233">StoreType, BranchType, Illegal</text>
+<rect x="330" y="245" width="245" height="125" rx="8" fill="#e6f2e6" stroke="#4a4a66" stroke-width="2"/>
+<text x="452.5" y="272" text-anchor="middle" font-size="21" font-weight="bold" fill="#1a1a2a">Register_File</text>
+<text x="452.5" y="294" text-anchor="middle" font-size="16" fill="#222233">31 regs + $zero</text>
+<text x="452.5" y="314" text-anchor="middle" font-size="16" fill="#222233">$gp=0x1800  $sp=0x3FFC</text>
+<text x="452.5" y="334" text-anchor="middle" font-size="16" fill="#222233">RegWrite, RS, RT, WriteAddr</text>
+<rect x="720" y="240" width="170" height="105" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="805.0" y="267" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a1a2a">ALU</text>
+<text x="805.0" y="289" text-anchor="middle" font-size="17" fill="#222233">ALUOp</text>
+<text x="805.0" y="309" text-anchor="middle" font-size="17" fill="#222233">Result / Zero</text>
+<rect x="720" y="400" width="170" height="65" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="805.0" y="427" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a2a">ALUOut</text>
+<text x="805.0" y="449" text-anchor="middle" font-size="16" fill="#222233">ALUOutWrite</text>
+<rect x="30" y="435" width="185" height="115" rx="8" fill="#eee" stroke="#4a4a66" stroke-width="2"/>
+<text x="122.5" y="462" text-anchor="middle" font-size="21" font-weight="bold" fill="#1a1a2a">Memory</text>
+<text x="122.5" y="484" text-anchor="middle" font-size="16" fill="#222233">16 KiB</text>
+<text x="122.5" y="504" text-anchor="middle" font-size="16" fill="#222233">MEM_RDATA</text>
+<text x="122.5" y="524" text-anchor="middle" font-size="16" fill="#222233">MEM_ADDR / MEM_WE</text>
+<rect x="245" y="435" width="170" height="75" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="330.0" y="462" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a2a">Mux MEM_ADDR</text>
+<text x="330.0" y="484" text-anchor="middle" font-size="16" fill="#222233">PC / ALUOut</text>
+<rect x="245" y="565" width="140" height="58" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="315.0" y="592" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a2a">MDR</text>
+<text x="315.0" y="614" text-anchor="middle" font-size="16" fill="#222233">MDRWrite</text>
+<rect x="430" y="555" width="190" height="75" rx="8" fill="#f5f5fa" stroke="#4a4a66" stroke-width="2"/>
+<text x="525.0" y="582" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a2a">Mux WriteData</text>
+<text x="525.0" y="604" text-anchor="middle" font-size="16" fill="#222233">MemToReg / IsJal</text>
+<rect x="720" y="545" width="145" height="60" rx="8" fill="#e8f6e8" stroke="#4a4a66" stroke-width="2"/>
+<text x="792.5" y="572" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a2a">TTY</text>
+<text x="792.5" y="594" text-anchor="middle" font-size="15" fill="#222233">B[6:0], TTY_WE</text>
+<rect x="720" y="620" width="110" height="50" rx="8" fill="#fae6e6" stroke="#4a4a66" stroke-width="2"/>
+<text x="775.0" y="647" text-anchor="middle" font-size="19" font-weight="bold" fill="#1a1a2a">HALT</text>
+<rect x="430" y="645" width="180" height="58" rx="8" fill="#f8f0e0" stroke="#4a4a66" stroke-width="2"/>
+<text x="520.0" y="672" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2a">Branch_Control</text>
+<text x="520.0" y="694" text-anchor="middle" font-size="15" fill="#222233">A==B, BranchType</text>
+<rect x="170" y="730" width="730" height="110" rx="8" fill="#e8e8f8" stroke="#4a4a66" stroke-width="2"/>
+<text x="535.0" y="757" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2a">Control_Unit (FSM de 9 estados) — señales de control: tabla 4</text>
+<text x="535.0" y="779" text-anchor="middle" font-size="13" fill="#222233">PCWrite, IRWrite, AWrite, BWrite, ALUOutWrite, MDRWrite, RegWrite, MemWrite</text>
+<text x="535.0" y="799" text-anchor="middle" font-size="13" fill="#222233">TTYWrite, HALT, MemAddrSrc, ALUASrc[1:0], ALUBSrc[2:0], ALUOp[3:0], ExtType[1:0]</text>
+<text x="535.0" y="819" text-anchor="middle" font-size="13" fill="#222233">RegDst, MemToReg, LoadType[1:0], StoreType, IsJal, IsSyscall, BranchType[1:0]</text>
+<polyline points="185,103 165,103" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="805,240 805,35 270,35 270,72" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="520" y="52" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">resultado de la ALU (FETCH/BRANCH)</text>
+<polyline points="890,432 930,432 930,15 300,15 300,72" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="920" y="150" text-anchor="end" font-size="15" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">ALUOut</text>
+<text x="920" y="166" text-anchor="end" font-size="15" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">(JUMP/WB)</text>
+<polyline points="30,114 14,114 14,415 245,415 245,435" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="105" y="408" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">PC</text>
+<polyline points="97.5,148 97.5,205 720,205 720,240" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="370" y="198" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">PC (A)</text>
+<polyline points="165,258.75 300,258.75 300,168.75 380,168.75" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="245" y="251.75" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">Op, Funct</text>
+<polyline points="165,265 305,265 305,305 330,305" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="245" y="282" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">rs, rt</text>
+<polyline points="120,435 120,293" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="139.25" y="375" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">MEM_RDATA</text>
+<polyline points="120,550 120,594 245,594" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="190" y="619.5" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">MEM_RDATA</text>
+<polyline points="245,472 215,472" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<polyline points="575,305 720,295" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="650" y="290" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">A, B</text>
+<polyline points="890,330 890,400" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="915" y="368" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">Result</text>
+<polyline points="720,432 435,432 435,472 415,472" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="560" y="425" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">ALUOut</text>
+<polyline points="720,455 650,455 650,590 620,590" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="665" y="520" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">ALUOut</text>
+<polyline points="525,555 525,370" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="548" y="455" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">WriteData</text>
+<polyline points="575,330 700,330 700,565 720,565" fill="none" stroke="#333344" stroke-width="2" marker-end="url(#a)"/>
+<text x="685" y="323" text-anchor="middle" font-size="16" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">B[6:0]</text>
+<polyline points="535,730 535,703" fill="none" stroke="#333344" stroke-width="2" stroke-dasharray="7,5" marker-end="url(#a)"/>
+<text x="545" y="720" text-anchor="start" font-size="14" fill="#333344" paint-order="stroke" stroke="#fff" stroke-width="5">BranchType / Taken</text>
+</svg>

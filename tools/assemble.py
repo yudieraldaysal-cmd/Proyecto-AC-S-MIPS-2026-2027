@@ -46,7 +46,7 @@ def main():
     salida = args.salida or ROOT/'images'/(args.fuente.stem + '.hex')
     with tempfile.TemporaryDirectory(prefix='smips-mars-') as directory:
         texto_hex, datos_hex = Path(directory)/'text.hex', Path(directory)/'data.hex'
-        result = subprocess.run([JAVA, '-jar', MARS, 'nc', 'mc', 'CompactTextAtZero', 'a',
+        result = subprocess.run([JAVA, '-Djava.awt.headless=true', '-jar', MARS, 'nc', 'mc', 'CompactTextAtZero', 'a',
                                  'dump', '.text', 'HexText', str(texto_hex),
                                  'dump', '.data', 'HexText', str(datos_hex), str(args.fuente)],
                                 capture_output=True, text=True)

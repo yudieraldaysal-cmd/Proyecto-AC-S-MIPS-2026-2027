@@ -1,16 +1,18 @@
-# S-MIPS: layout para implementar la CPU
+# S-MIPS: CPU multiciclo implementada
 
-Placa de Logisim Evolution 5.0.0 lista para que se implemente dentro una CPU **multiciclo** de S-MIPS. La placa (memoria, terminal, reloj, reset y halt) ya está resuelta; el subcircuito `CPU` está vacío, solo con su interfaz.
+CPU **multiciclo** de S-MIPS implementada en Logisim Evolution 5.0.0. La placa (memoria, terminal, reloj, reset y halt) está resuelta; el subcircuito `CPU` contiene la implementación y los seis subcircuitos obligatorios (`Instruction_Decoder`, `Control_Unit`, `Branch_Control`, `Datapath`, `Register_File`, `ALU`).
 
 ```text
 SMIPS-Layout/
 ├── docs/guide.pdf          Orientación y especificación completa del proyecto (fuente: guide.tex)
-├── circuit/smips.circ      Circuitos Board, CPU (vacío) y Memory
+├── circuit/smips.circ      Circuitos Board, CPU implementada y Memory
 ├── programs/               Programas .asm: ejemplos (hello, array_sum, gcd, multiply) y pruebas de instrucciones (arithmetic, memory, branches)
-├── tests/                  (la crea el estudiante) programas de prueba propios: sección 7 de guide.pdf
-├── images/                 Imágenes de memoria generadas desde los .asm
+├── tests/                  7 programas de prueba propios (cobertura R21)
+├── informe.md / informe.pdf  Informe final (9 páginas A4)
+├── salida-tests.txt        Salida completa de run_tests.py (14/14)
+├── images/                 Imágenes de memoria y figuras del informe
 ├── open.sh                 Abre el circuito en Logisim (con Questa si la CPU usa VHDL)
-└── tools/                  assemble.py (MARS → imagen), run_tests.py (compara con MARS), build.py
+└── tools/                  assemble.py, run_tests.py (y generadores históricos)
 ```
 
 **La especificación del proyecto está en [`docs/guide.pdf`](docs/guide.pdf).** Este archivo solo resume la placa y el flujo de trabajo.
@@ -20,7 +22,7 @@ SMIPS-Layout/
 | Circuito | Contenido | ¿Se modifica? |
 |---|---|---|
 | `Board` (principal) | Reloj, botón Reset, CPU, Memory, TTY y LED Halt, conectados por túneles | No |
-| `CPU` | Solo los pines de la interfaz | **Sí: aquí se implementa la CPU** |
+| `CPU` | CPU multiciclo implementada (6 subcircuitos) | Ya implementada; ver `informe.pdf` |
 | `Memory` | RAM nativa de 4096 × 32 bits con habilitación por bytes | No |
 
 No se requiere Questa para usar la placa: todo es nativo de Logisim.
@@ -76,9 +78,9 @@ Una instrucción ilegal detiene la CPU igual que `syscall` 10. Los detalles est�
 3. Entrar en `Memory` desde la simulación (pestaña **Simulate** del panel izquierdo → `Board` → `Memory`, o clic derecho sobre el bloque en la placa → **View Memory**), hacer clic derecho en la RAM → **Load Image…** y elegir `images/hello.hex`. No abrirla desde la lista de la pestaña **Design**: así se edita una copia aislada y la placa no ve la imagen.
 4. Volver a `Board`, pulsar **Reset** con la herramienta de la mano y activar los ticks del reloj.
 
-## 6. Regenerar el circuito
+## 6. Herramientas de generación (histórico)
 
-`python3 tools/build.py` reconstruye `circuit/smips.circ` desde cero (necesita Java 21 y el JAR de Logisim 5.0.0 en `LOGISIM_JAR`). **Sobrescribe el archivo**: no lo ejecutes sobre una copia en la que ya se haya implementado la CPU.
+`tools/build.py` es un generador histórico. **No lo ejecutes**: reconstruye `circuit/smips.circ` desde cero y borra la implementación manual. El circuito entregado ya está terminado.
 
 ## 7. Comprobar la CPU
 
@@ -88,4 +90,12 @@ python3 tools/run_tests.py                       # programs/*.asm y tests/*.asm:
 python3 tools/run_tests.py programs/memory.asm # un solo programa
 ```
 
-`run_tests.py` ensambla cada programa, obtiene la salida esperada con MARS, lo ejecuta en la placa y compara el texto del TTY. Requiere Java 21, MARS y Logisim 5.0.0 (`LOGISIM_JAR`, `MARS_JAR`); si la CPU tiene entidades VHDL, también Questa con licencia (`QUESTA_BIN`, `SALT_LICENSE_SERVER`), y entonces la simulación es más lenta.
+`run_tests.py` ensambla cada programa, obtiene la salida esperada con MARS, lo ejecuta en la placa y compara el texto del TTY. Resultado final: **14/14 programas correctos**. Requiere Java 21, MARS y Logisim 5.0.0 (`LOGISIM_JAR`, `MARS_JAR`). No se usa VHDL, así que no hace falta Questa.
+
+## 8. Entrega
+
+- `circuit/smips.circ` — CPU implementada.
+- `informe.pdf` — informe de 9 páginas A4 (fuente: `informe.md`).
+- `tests/` — 7 programas propios que cubren `tab:casos`.
+- `salida-tests.txt` — salida completa de `python3 tools/run_tests.py` (14/14).
+- No hay archivos `.vhd`: no se usó VHDL.

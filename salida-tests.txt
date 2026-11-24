@@ -1,0 +1,21 @@
+Logisim: /home/al2/Downloads/logisim-evolution-5.0.0-all.jar
+JDK:     /home/al2/.local/share/ElyPrismLauncher/java/java-runtime-epsilon/bin
+MARS:    /home/al2/Apps/mars/Mars4_5.jar
+Modo:    sin ventana (headless)
+Ejecutando 14 programas en la placa...
+OK    programs/arithmetic.asm  (6315 ciclos)
+OK    programs/array_sum.asm  (884 ciclos)
+OK    programs/branches.asm  (920 ciclos)
+OK    programs/gcd.asm  (2757 ciclos)
+OK    programs/hello.asm  (283 ciclos)
+OK    programs/memory.asm  (4814 ciclos)
+OK    programs/multiply.asm  (1918 ciclos)
+OK    tests/t01_aritmetica.asm  (3490 ciclos)
+OK    tests/t02_logica.asm  (1605 ciclos)
+OK    tests/t03_memoria.asm  (3217 ciclos)
+OK    tests/t04_saltos.asm  (262 ciclos)
+OK    tests/t05_tty.asm  (146 ciclos)
+OK    tests/t06_desplaz.asm  (1920 ciclos)
+OK    tests/t07_llamadas.asm  (550 ciclos)
+
+14/14 correctos
